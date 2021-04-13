@@ -44,3 +44,33 @@ Explanation:
 "abcde...." is a completed sequence    
 ".....abcd" is a sequence in order, yet incomplete (reuse of the same process).    
 
+
+
+
+
+
+
+
+## Implementation hints
+
+### List of Lists
+
+Create a list of processors, where each processor has a list of steps. These steps can be 0 (not run) or 1 (ran).
+{processor1, processor2, .. }
+processor:
+{'a':1, 'b':0, 'c':0, 'd':0, 'e':0}
+
+### improvement 1
+The processor list can be improved. Since the steps have to come in order, 
+a place value can already indicate the state of the process. 
+processor:     
+{a} -> {b} -> {c} -> ..     
+
+### improvement 2
+Since the list of processors now becomes     
+['d', 'c', 'a' ]     
+you might as well us a string; The first character is processor 1, the second character is processor 2, ..
+
+### improvement 3
+You could use numbers for the processors or even bytes. 
+Advantage: you do not need to rewrite the processor state, but just increment/decrement the value. 
